@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theremin</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+       <div>
+            <h1>Play The Theremin</h1>
+            <p>Click and move inside the black canvas to create sounds from outer space</p>
+       </div>
+       <span id="help">?</span>
+    </header>
+    <main>
+        <canvas id='canvas'></canvas>
+        <section id='settings'>
+            <fieldset class='waveform'>
+                <legend>Wave Form</legend>
+                <div class='container'>
+                    <input type="radio" name="waveform" value='sine' id="sine" checked>
+                    <label for="sine">
+                        <img src="src/sine.png" alt="">
+                    </label>
+                    <input type="radio" name="waveform" value='square' id="square">
+                    <label for="square">
+                        <img src="src/square.png" alt="">
+                    </label>
+                    <input type="radio" name="waveform" value='sawtooth' id="sawtooth">
+                    <label for="sawtooth">
+                        <img src="src/sawtooth.png" alt="">
+                    </label>
+                    <input type="radio" name="waveform" value='triangle' id="triangle">
+                    <label for="triangle">
+                        <img src="src/triangle.png" alt="">
+                    </label>
+                </div>
+            </fieldset>
+            <fieldset class='echo'>
+                <legend>Echo</legend>
+                <label for="delay">Delay</label>
+                <input type="range" id="delay" name="delay" 
+                min="0" max="500" value="250" step="1">
+                <label for="rever">Reverb</label>
+                <input type="range" id="reverb" name="reverb" 
+                min="0" max="0.7" value="0.3" step="0.01">
+            </fieldset>
+            <fieldset class='visualizer'>
+                <legend>Visualizer</legend>
+                    <label id='frequency'>Frequency: 000 HZ</label>
+                    <canvas id="visualizer"></canvas>
+            </fieldset>
+        </section>
+    </main>
+
+    <!-- Modal -->
+    <div class='modal' id='modal'>
+        <div class="modal-content">
+            <div class="modal-header">
+                <span id='close'>X</span>
+            </div>
+            <h2>What is a theremin?</h2>
+            <p>The theremin is an electronic musical instrument invented by Leon Theremin in 1928. It has the particularity to be played without any physical contact: its two antennas can sense the position of the player's hands.</p>
+
+            <h2>How to play?</h2>
+            <p>This digital theremin uses the same principles as a real one. The higher you go, and the louder the volume will be. The movements from left to right define the tone, from very low (left), to very high (right).</p>
+
+            <h2>Why does it sound so weird?</h2>
+            <p>In traditionnal music, each note is defined by a given frequency (e.g A = 440 Hz). However, the theremin doesn't have a neat seperation between notes, which means that to go from one note to another, you have to go through all the frequencies in between them. Those 'in-between notes' are very atypical to the human ear, which might give the feeling of hearing sounds from space</p>
+
+            <h2>What is a waveform?</h2>
+            <p>There are 4 types of waveforms : sine, square, sawtooth and triangle. The sine wave corresponds to a pure tone. The 3 others add harmonics to the original tone. The shape affects the way the note will sound like.
+            </p>
+
+            <h2>What are delay and reverb?</h2>
+            <p>A delay is basically a repetition of the note you just played. The time between the original note and the repetion can vary to your liking.
+            Reverb is a digital echo, giving the feeling that you are playing, for example, in a big hall. </p>
+        </div>
+    </div>
+    
+</body>
+</html>
