@@ -9,6 +9,7 @@ const frequencyLabel = document.getElementById('frequency');
 const helpButton = document.getElementById('help');
 const closeButton = document.getElementById('close');
 const modal = document.getElementById('modal');
+const startScreen = document.getElementById('start-screen')
 
 // Init Canvas 
 
@@ -62,6 +63,12 @@ vcontext.strokeWidth = 2;
 
 
 /***** LOGIC *****/  
+
+// Init web audio (allows audio to start because interaction)
+
+const webAudioInit = () => {
+    startScreen.style.display = 'none';
+}
 
 // Music funcs 
 
@@ -342,6 +349,8 @@ window.addEventListener('resize', () => {
 })
 
 // Desktop
+
+startScreen.addEventListener('click', webAudioInit)
 
 canvas.addEventListener('mousedown', (e) => {
     click = true;
